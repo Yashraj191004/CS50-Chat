@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS messages;
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    hash TEXT NOT NULL
+);
+
+CREATE TABLE messages (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    message TEXT NOT NULL,
+    time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    sender_id INTEGER NOT NULL,
+    recipient_id INTEGER NOT NULL,
+    FOREIGN KEY(sender_id) REFERENCES users(id),
+    FOREIGN KEY(recipient_id) REFERENCES users(id)
+);

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}Messages{% endblock %}
+{% block main %}
+    <h2 class="mb-4 text-center">Messages</h2>
+    <div class="chat-container mb-5">
+        <form action="/messages" method="post" class="mb-4 p-3 bg-secondary rounded">
+            <div class="mb-3">
+                <label for="recipient" class="form-label">Send to:</label>
+                <input type="text" name="recipient" id="recipient" placeholder="Username" class="form-control mb-2" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message:</label>
+                <input type="text" name="message" id="message" placeholder="Type your message..." class="form-control mb-2" required>
+            </div>
+            <button type="submit" class="btn btn-success button">Send Message</button>
+        </form>
+        <h4 class="mt-4 mb-3">Your Conversations</h4>
+        <div class="chat-messages p-3 bg-secondary rounded">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="chat-message mb-2 p-2 rounded {% if message.sender_username == session.username %}bg-primary{% else %}bg-dark{% endif %}">
+                        <strong class="{% if message.sender_username == session.username %}text-warning{% else %}text-info{% endif %}">
+                            {{ message.sender_username }}:
+                        </strong>
+                        <span class="ms-2">{{ message.message }}</span>
+                        <div class="d-flex justify-content-between mt-1">
+                            <small class="text-muted">To: {{ message.recipient_username }}</small>
+                            <small class="text-muted">{{ message.time }}</small>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center text-muted">No messages yet. Start a conversation!</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

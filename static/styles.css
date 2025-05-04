@@ -1,0 +1,128 @@
+body {
+    background: #2f3136;
+    color: #fff;
+    padding-top: 56px;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #142033 !important;
+    border-bottom: 1px solid #222;
+}
+
+.navbar-brand {
+    font-size: xx-large;
+}
+
+h1,
+h2,
+h3 {
+    color: #fff;
+}
+
+.button,
+.btn.button {
+    padding: 0.6em 2em;
+    border: none;
+    color: rgba(243, 244, 246, 0.9);
+    background: #1c2333;
+    border-radius: 10px;
+    position: relative;
+    z-index: 0;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.button:before {
+    content: "";
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.button:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+input.form-control {
+    background-color: #18191c;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+}
+
+input.form-control:focus {
+    background-color: #3f4b65;
+    color: #fff;
+    box-shadow: none;
+}
+
+input.form-control::placeholder {
+    color: #ccc;
+}
+
+.chat-container {
+    background: #36393f;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.chat-messages {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.chat-message {
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+}
+
+.chat-message.bg-primary {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+@media (max-width: 600px) {
+    .chat-container {
+        padding: 10px;
+    }
+
+    .chat-messages {
+        max-height: 300px;
+    }
+}
