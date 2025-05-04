@@ -1,3 +1,4 @@
+*/
 # CS50Chat
 
 #### Description:
@@ -43,4 +44,4 @@ CS50Chat is a real-time messaging platform that enables users to communicate pri
 
 **Summary:**
 CS50Chat is a secure, modern, and easy-to-use messaging platform built with Flask and SQLite. It features a clean interface, strong security, and a maintainable codebase, making it a solid foundation for further real-time features or group chat extensions.
-
+/*
